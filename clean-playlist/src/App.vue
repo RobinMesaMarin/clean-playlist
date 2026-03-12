@@ -1,85 +1,58 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterView } from 'vue-router'
+import AppHeader from './components/AppHeader.vue'
+import 'bootstrap/dist/css/bootstrap.min.css'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <AppHeader />
+  <main>
+    <RouterView />
+  </main>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+<style>
+:root {
+  --bg: #000;
+  --bg-card: #1e1e1e;
+  --bg-card-hover: #2a2a2a;
+  --bg-card-selected: #252525;
+  --border: #2e2e2e;
+  --border-light: #3a3a3a;
+  --text: #f0f0f0;
+  --text-muted: #aaa;
+  --text-body: #ccc;
+  --accent: #e07b54;
+  --link: #7aadff;
+  --header-bg: #111;
+  --shadow: rgba(0,0,0,0.4);
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+:root.light {
+  --bg: #f5f5f5;
+  --bg-card: #fff;
+  --bg-card-hover: #f0f0f0;
+  --bg-card-selected: #fafafa;
+  --border: #ddd;
+  --border-light: #ccc;
+  --text: #111;
+  --text-muted: #666;
+  --text-body: #333;
+  --accent: #c0572e;
+  --link: #1a5fb4;
+  --header-bg: #fff;
+  --shadow: rgba(0,0,0,0.1);
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+body {
+  background: var(--bg);
+  color: var(--text);
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
+#app {
+  margin: 1rem;
+  background: var(--bg);
+  color: var(--text);
+}</style>
