@@ -105,7 +105,7 @@ const platformColor: Record<Platform, string> = {
 function extractDeezerId(input: string): string | null {
   if (/^\d+$/.test(input)) return input
   const m = input.match(/deezer\.com\/(?:[a-z-]+\/)?playlist\/(\d+)/)
-  return m ? m[1] : null
+  return m?.[1] ?? null
 }
 
 async function fetchDeezer(id: string): Promise<PlaylistData> {
@@ -116,7 +116,7 @@ async function fetchDeezer(id: string): Promise<PlaylistData> {
 
 function extractSpotifyId(input: string): string | null {
   const m = input.match(/spotify\.com\/(?:[a-z-]+\/)?playlist\/([A-Za-z0-9]+)/)
-  return m ? m[1] : null
+  return m?.[1] ?? null
 }
 
 async function fetchSpotify(id: string): Promise<PlaylistData> {
@@ -127,7 +127,7 @@ async function fetchSpotify(id: string): Promise<PlaylistData> {
 
 function extractYoutubeId(input: string): string | null {
   const m = input.match(/[?&]list=([A-Za-z0-9_-]+)/)
-  return m ? m[1] : null
+  return m?.[1] ?? null
 }
 
 async function fetchYoutube(id: string): Promise<PlaylistData> {
