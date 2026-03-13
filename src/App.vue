@@ -21,7 +21,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
   --text: #f0f0f0;
   --text-muted: #aaa;
   --text-body: #ccc;
-  --accent: #e07b54;
+  --accent: #dc2626;
   --link: #7aadff;
   --header-bg: #111;
   --shadow: rgba(0,0,0,0.4);
@@ -37,7 +37,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
   --text: #111;
   --text-muted: #666;
   --text-body: #333;
-  --accent: #c0572e;
+  --accent: #b91c1c;
   --link: #1a5fb4;
   --header-bg: #fff;
   --shadow: rgba(0,0,0,0.1);
