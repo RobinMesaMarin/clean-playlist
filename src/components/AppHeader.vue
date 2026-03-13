@@ -31,6 +31,10 @@ const { isDark, toggle } = useTheme();
   position: sticky;
   top: 0;
   z-index: 50;
+
+  @media (max-width: 400px) {
+    padding: 0.6rem 0.75rem;
+  }
 }
 
 .app-title {
@@ -44,6 +48,10 @@ const { isDark, toggle } = useTheme();
 nav {
   display: flex;
   gap: 1.5rem;
+
+  @media (max-width: 400px) {
+    gap: 1rem;
+  }
 }
 
 nav a {

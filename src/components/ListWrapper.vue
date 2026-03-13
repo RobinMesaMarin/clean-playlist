@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { useRoute } from 'vue-router';
 import { useVirtualizer } from '@tanstack/vue-virtual';
 import ListItem from './ListItem.vue';
 
+const route = useRoute();
 const source = ref<any[]>([]);
 onMounted(async () => {
   const res = await fetch('/data.json');
   source.value = await res.json();
+  if (route.query.q) search.value = String(route.query.q);
 });
 
 const categoryCounts = computed(() => {
@@ -144,7 +147,7 @@ function measureItem(el: Element | null, index: number) {
         ref="searchInput"
         class="search-input"
         type="text"
-        placeholder="Rechercher un artiste...  (Ctrl+K)"
+        placeholder="Rechercher un artiste…"
         aria-label="Rechercher un artiste"
       />
       <div class="cat-dropdown" :class="{ open: dropdownOpen }">
@@ -304,6 +307,7 @@ h1 {
   border: 1px solid var(--border-light);
   border-radius: 0.4rem;
   min-width: 240px;
+  max-width: min(320px, calc(100vw - 2rem));
   max-height: 320px;
   overflow-y: auto;
   box-shadow: 0 8px 24px var(--shadow);
@@ -334,6 +338,7 @@ h1 {
   align-items: center;
   gap: 0.5rem;
   padding: 0.4rem 0.75rem;
+  min-height: 2.75rem;
   font-size: 0.875rem;
   color: var(--text-body);
   cursor: pointer;
@@ -388,8 +393,13 @@ h1 {
   color: var(--accent);
   font-size: 0.78rem;
   padding: 0.2rem 0.6rem;
+  min-height: 2.75rem;
   cursor: pointer;
   transition: background 0.15s;
+
+  @media (pointer: coarse) {
+    padding: 0.45rem 0.75rem;
+  }
 
   &:hover {
     background: var(--bg-card-hover);
@@ -436,7 +446,7 @@ h1 {
 
 /* List */
 .list-scroll {
-  height: calc(100vh - 220px);
+  height: calc(100dvh - 220px);
   overflow-y: auto;
 }
 

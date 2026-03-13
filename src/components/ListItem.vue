@@ -25,7 +25,7 @@ const props = defineProps(['item'])</script>
         <ul class="list-item__source-list" aria-labelledby="sources-label">
           <li v-for="source in props.item.sources" :key="source.url">
             <img
-              v-bind:src="'../src/assets/icons/' + source.lang + '.png'"
+              v-bind:src="'/icons/' + source.lang + '.png'"
               v-bind:alt="source.lang === 'fr' ? 'Source en français' : source.lang === 'en' ? 'Source en anglais' : `Source en ${source.lang}`"
               width="16" height="16"
             />

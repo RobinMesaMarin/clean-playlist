@@ -46,7 +46,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 body {
   background: var(--bg);
   color: var(--text);
-  height: 100vh;
+  height: 100dvh;
   margin: 0;
   overflow: hidden;
 }
